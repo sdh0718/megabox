@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 제작자 -->
+    <meta name="author" content="kim">
+<!-- 설명 -->
+    <meta name="description" content="메가박스 사이트 입니다.">
+<!-- 키워드 -->
+    <meta name="keywords" content="메가박스,영화,megabox,예매">
+<!-- 링크공유 -->
+    <meta property="og:title" content="메가박스">
+    <meta property="og:url" content="https://sdh0718.github.io/megabox/">
+    <meta property="og:image" content="images/br.png">
+    <meta property="og:description" content="최고의 감동, 메가박스와 함께하세요!">
+<!-- 파비콘 -->
+    <link rel="shortcut icon" href="images/favicon.png">
+<!-- 제이쿼리 -->
+    <script src="js/jquery-3.5.0.min.js"></script>
+<!-- 스와이퍼 -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
+<!-- 외부 js -->
+    <script src="js/skip.js"></script>
+    <script src="js/banner.js"></script>
+<!-- 외부 css -->
+    <link rel="stylesheet" href="css/reset.css">
+
+<script>
+    $(function(){
+        // swiper
+        var swiper = new Swiper('.swiper-container');
+
+    });
+</script>
+
+    <title>라이프시어터,메가박스</title>
+
+
+<style>
+    /* #2a155a #503396 #252451 */
+/* 스킵메뉴 */
+    .skip{width:100%;height:50px;background:#2a155a;display:flex;justify-content:center;align-items:center;
+        position: absolute; top: -50px;z-index: 99;} 
+    /* justify-content : 가로방향 정렬 align-items : 세로방향 정렬 */
+    .skip a{border:2px solid transparent;padding:8px 10px;margin:0 5px;color:white;}
+    .skip a:focus,.skip a:hover{border: 2px solid white;}
+
+/* 배너 */
+    .banner01{text-align: center; background:#eee9e3;}
+    .banner02{text-align: center; background:#4f79a9;}
+    .banner img{display: inline-block;}
+    .banner .close{width:20px;height:20px;background:#666;color:white;line-height:20px;text-align:center;
+        cursor:pointer;position: absolute;right:0;bottom:0;}
+    .banner>div{display: none; position:relative;}
+    .banner>div.active{display: block;}
+</style>
+
+</head>
+<body>
+    <div class="skip">
+        <a href="#section">본문 바로가기</a>
+        <a href="#footer">푸터 바로가기</a>
+    </div>
+    <div class="wrap">
+        <div class="banner">
+            <div class="banner01">
+                <img src="images/banner01.jpg" alt="banner01">
+                <div class="close">X</div>
+            </div>
+            <div class="banner02">
+                <img src="images/banner02.jpg" alt="banner02">
+                <div class="close">X</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
