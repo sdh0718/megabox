@@ -15,7 +15,4 @@ function subPosition(){
     }
     subPosition01();
 
-    $(window).resize(function(){
-        subPosition01();
-    });
 }
