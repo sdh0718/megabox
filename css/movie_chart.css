@@ -23,7 +23,7 @@
 
     .poster_btn{color: white;}
     .poster_btn>div:first-child{float: left;display:flex;width: 32%;box-sizing:border-box;justify-content:space-between;
-        border: 1px solid #666;border-radius:5px;padding:13px 15px;background: rgba(0,0,0,0.5); cursor: pointer;}
+        border: 1px solid #666;border-radius:5px;padding:13.5px 15px;background: rgba(0,0,0,0.5); cursor: pointer;}
     .poster_btn>div:first-child>span{text-indent: -9999999px; width: 17px; height: 15px; 
         background-image: url('../images/iconset-heart.png');}
     .poster_btn>div:last-child{float: right; width: 65%; box-sizing: border-box; cursor: pointer;text-align: center;
