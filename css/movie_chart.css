@@ -1,0 +1,59 @@
+@charset 'utf-8';
+
+    .section{padding: 70px 0 120px;background:linear-gradient(145deg,#0c0909 10%,#161d2b 40%,#2b1f22 90%);}
+
+    .movie_chart h2{text-align: center; margin-bottom: 30px;}
+    .movie_chart h2 a{border-bottom: 1px solid #666; padding-bottom: 5px;
+        font-weight: normal; font-size: 15px; color: white;}
+
+    .poster{overflow: hidden; position: relative; border-radius: 5px; margin-bottom: 8px;}
+    .poster>img{width: 100%;}
+    .poster>.poster_number{position: absolute; left: 15px; top: 10px; z-index: 1;
+        font-size: 36px; color: white; text-shadow: 2px 2px 3px black; font-style: italic;}
+
+    .poster>.poster_txt{position: absolute; left: 0; top: 0; right: 0; bottom: 0; padding: 20px;
+        background: rgba(0,0,0,0.8);color: white; z-index: 2;opacity: 0; transition:0.2s;}
+    .poster:hover>.poster_txt{opacity: 1; cursor: pointer;}
+
+    .poster>.poster_txt>p{line-height: 22px;}
+    .poster>.poster_txt>p:first-child{height:80%; border-bottom:1px solid #666;}
+    .poster>.poster_txt>p:last-child{height:20%;padding:0 40px;display:flex;justify-content:space-around;
+        align-items:center;}
+    .poster>.poster_txt>p:last-child>span{font-size: 30px; color:#59bec9;}
+
+    .poster_btn{color: white;}
+    .poster_btn>div:first-child{float: left;display:flex;width: 32%;box-sizing:border-box;justify-content:space-between;
+        border: 1px solid #666;border-radius:5px;padding:13px 15px;background: rgba(0,0,0,0.5); cursor: pointer;}
+    .poster_btn>div:first-child>span{text-indent: -9999999px; width: 17px; height: 15px; 
+        background-image: url('../images/iconset-heart.png');}
+    .poster_btn>div:last-child{float: right; width: 65%; box-sizing: border-box; cursor: pointer;text-align: center;
+        background:#037b94; padding:15px; border-radius: 5px;}
+
+    .swiper-container{margin-bottom: 50px;}
+
+    .quick_movie_menu{display: flex; align-items: center; height: 80px; background: rgba(0,0,0,0.3);}
+    .quick_movie_menu>li{flex: 1; display: flex; justify-content: center; border-right:1px solid #666;}
+    .quick_movie_menu>li:nth-child(4){border: none;}
+    .quick_movie_menu>li>a{color: white;font-size: 16px;padding:5px 0 5px 30px;
+        background-repeat:no-repeat;background-position: left;}
+    .quick_movie_menu>li>a:hover{text-decoration: underline;}
+
+    .quick_movie_menu>li:nth-child(2)>a{background-image: url('../images/ico-schedule-main.png');}
+    .quick_movie_menu>li:nth-child(3)>a{background-image: url('../images/ico-boxoffice-main.png');}
+    .quick_movie_menu>li:nth-child(4)>a{background-image: url('../images/ico-quick-reserve-main.png');
+        padding-left:36px;}
+
+    .quick_movie_menu>li>input{background:transparent; background-image: url('../images/ico-search-white.png');
+        background-repeat: no-repeat; background-position: right;
+        padding:5px 20px 5px 0; border: none; border-bottom: 1px solid #666;color: white; outline: none; font-size: 16px;}
+
+    .mouse_ani{position: relative;}
+    .mouse_ani>img{position: absolute; top:30px; left: 50%;transform: translate(-50%); 
+        animation:mmove 1.5s infinite ease-in-out; animation-delay: 1s;}
+
+    @keyframes mmove{
+        0%{top:30px;}
+        50%{top:50px;}
+        70%{top:50px;}
+        100%{top:30px;}
+    }
