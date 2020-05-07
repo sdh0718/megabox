@@ -3,12 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        p{font-size: 30px;}
-    </style>
+<!-- 제작자 -->
+    <meta name="author" content="kim">
+<!-- 설명 -->
+    <meta name="description" content="메가박스 사이트 입니다.">
+<!-- 키워드 -->
+    <meta name="keywords" content="메가박스,영화,megabox,예매">
+<!-- 링크공유 -->
+    <meta property="og:title" content="메가박스">
+    <meta property="og:url" content="https://sdh0718.github.io/megabox/">
+    <meta property="og:image" content="images/br.png">
+    <meta property="og:description" content="최고의 감동, 메가박스와 함께하세요!">
+<!-- 파비콘 -->
+    <link rel="shortcut icon" href="images/favicon.png">
+<!-- 제이쿼리 -->
+    <script src="../js/jquery-3.5.0.min.js"></script>
+<!-- 스와이퍼 -->
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <script src="../js/swiper.min.js"></script>
+
+<!-- 외부 js -->
+
+<!-- 외부 css -->
+    <link rel="stylesheet" href="../css/reset.css">
+
+
+    <title>라이프시어터,메가박스</title>
+
+
+    <script>
+        $(function(){
+            $('#ticket_btn,#alarm_btn').click(function(){
+                var conF=confirm('로그인 후 이용 가능합니다.\n로그인 하시겠습니까?');
+                console.log(conF);
+                if(conF){
+                    //로그인 폼 보기
+                    alert('로그인 폼이 안만들어졌어요')
+                }
+            });
+            $(window).scroll(function(){
+                var scrTop=$(this).scrollTop();
+                console.log(scrTop);
+                if(scrTop>30){
+                    $('.static_top').css('backgroundColor','rgba(0,0,0,0.7)');
+                }else{
+                    $('.static_top').css('backgroundColor','transparent');
+                }
+            });
+        });
+    </script>
+
+
+<style>
+    .static_top,.static_bottom{position:fixed;left:0;z-index:999;width:100%;box-sizing: border-box;padding: 16px 16px 4px 16px;
+        display:flex;justify-content:space-between;}
+    .static_top{top:0; transition: 0.3s;}
+    .static_top>li:nth-child(1) img{width: 30px;}
+    .static_top>li:nth-child(2){margin-top: -12px; margin-right:-20px;}
+    .static_top>li:nth-child(2) img{width: 110px;}
+    .static_top>li:nth-child(3) img{width: 30px;}
+
+
+    .static_bottom{bottom:0;}
+
+
+
+    .wrap{height: 2000px; background: #2a155a;}
+</style>
+
 </head>
 <body>
-    <p>모바일입니다</p>
+    <div class="static_menu">
+        <ul class="static_top">
+            <li>
+                <a href="#">
+                    <img id="ticket_btn" src="images/ico-ticket-w.png" alt="ico-ticket">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/logo-white.png" alt="logo">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img id="alarm_btn" src="images/ico-alarm.png" alt="ico-alarm">
+                    <img id="toggle_btn" src="images/ico-burger-w.png" alt="ico-burger">
+                </a>
+            </li>
+        </ul>
+
+
+
+        <ul class="static_bottom">
+            <li>
+                <a href="#">
+                    <img src="images/ico-bnb-movie.png" alt="ico-bnb-movie">
+                    <img src="images/ico-bnb-movie-on.png" alt="ico-bnb-movie-on">
+                    <p>영화</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/ico-bnb-store.png" alt="ico-bnb-store">
+                    <img src="images/ico-bnb-store-on.png" alt="ico-bnb-store-on">
+                    <p>스토어</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/ico-bnb-reserve.png" alt="ico-bnb-reserve">
+                    <img src="images/ico-bnb-reserve-on.png" alt="ico-bnb-reserve-on">
+                    <p>예매</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/ico-bnb-event.png" alt="ico-bnb-event">
+                    <img src="images/ico-bnb-event-on.png" alt="ico-bnb-event-on">
+                    <p>이벤트</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/ico-bnb-mymega.png" alt="ico-bnb-mymega">
+                    <img src="images/ico-bnb-mymega-on.png" alt="ico-bnb-mymega-on">
+                    <p>MY</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="wrap">
+
+    </div>
 </body>
 </html>
