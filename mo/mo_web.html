@@ -31,31 +31,53 @@
     <title>라이프시어터,메가박스</title>
 
 
-    <script>
-        $(function(){
-            $('#ticket_btn,#alarm_btn').click(function(){
-                var conF=confirm('로그인 후 이용 가능합니다.\n로그인 하시겠습니까?');
-                console.log(conF);
-                if(conF){
-                    //로그인 폼 보기
-                    alert('로그인 폼이 안만들어졌어요')
-                }
-            });
-            $(window).scroll(function(){
-                var scrTop=$(this).scrollTop();
-                console.log(scrTop);
-                if(scrTop>30){
-                    $('.static_top').css('backgroundColor','rgba(0,0,0,0.7)');
-                }else{
-                    $('.static_top').css('backgroundColor','transparent');
-                }
-            });
-        });
-    </script>
+<script>
+$(function(){
+    $('#ticket_btn,#alarm_btn,#login_txt').click(function(){
+        var conF=confirm('로그인 후 이용 가능합니다.\n로그인 하시겠습니까?');
+        console.log(conF);
+        if(conF){
+            $('.static_menu,.wrap,.burger_menu').hide();
+            $('.login_form').show();
+        }
+    });
+    $(window).scroll(function(){
+        var scrTop=$(this).scrollTop();
+        console.log(scrTop);
+        if(scrTop>30){
+            $('.static_top').css('backgroundColor','rgba(0,0,0,0.7)');
+        }else{
+            $('.static_top').css('backgroundColor','transparent');
+        }
+    });
+    $('#close_btn').click(function(){
+        $('.login_form').hide();
+        $('.static_menu,.wrap').show();
+    });
+
+    $('#toggle_btn').click(function(){
+        $('.burger_menu').css('display','flex');
+    });
+
+    $('#burger_close_btn').click(function(){
+        $('.burger_menu').hide();
+    });
+    
+    //서브맴버 토글
+    $('.member_sub').hide();
+    $('#member_btn').click(function(){
+        $('.member_sub').slideToggle(100);
+        $('.member_sub').css('border-bottom','1px solid rgba(0,0,0,0.1)');
+    });
+});    
 
 
+        
+</script>
+
+<!-- 상,하단 고정바 -->
 <style>
-    .static_top,.static_bottom{position:fixed;left:0;z-index:999;width:100%;box-sizing: border-box;padding: 16px 16px 4px 16px;
+    .static_top,.static_bottom{position:fixed;left:0;z-index:99;width:100%;box-sizing: border-box;padding: 16px 16px 4px 16px;
         display:flex;justify-content:space-between;}
     .static_top{top:0; transition: 0.3s;}
     .static_top>li:nth-child(1) img{width: 30px;}
@@ -66,13 +88,116 @@
 
     .static_bottom{bottom:0;}
 
+</style>
 
+<!-- 로그인폼 스타일 -->
+<style>
+    .login_form{display: none; position: absolute;left: 0;top: 0;width: 100%;z-index:100;background: white;}
+
+    .login_form,.login_form a{color: #666;}
+
+    .login_tit::before{content: ''; display: block;}
+    .login_tit{display: flex; justify-content: space-between; padding: 10px 0;background: white;
+        position: fixed; left: 0; top: 0; width: 100%;}
+    .login_tit img{width: 30px;padding-right:15px;}
+    .login_tit p{font-size: 20px;padding-top: 4px;}
+
+    .login_content{padding-top: 100px;}
+    .id_pass{width:100%;margin-bottom:20px;padding:10px 0;border:none; outline: none;
+        border-bottom:1px solid rgba(0,0,0,0.2);}
+    .id_pass::placeholder{color: rgba(0,0,0,0.3);font-size: 13px;}
+
+    .id_save{display: flex; margin-bottom: 30px;}
+    .id_save>label{display: flex; flex-flow:row nowrap; align-items: center;}
+    .id_save>label::before{content: ''; display: inline-block; width: 20px; height: 20px;margin-right: 5px;
+        background:url('images/bg-m-check-type3.png');background-size:cover;background-position:left;}
+    
+    #save_id:checked~label::before{background-position: right;}
+    #save_id{display: none;}
+    .id_save label span{display: inline-block;font-size: 16px;}
+
+    .login_content input[type='button']{width: 100%;border:none; padding:15px 0; 
+        color: white;font-size: 18px; background: #6437bf;cursor: pointer;}
+
+    .login_search,.login_sns{width:35%;margin:30px auto;display:flex;justify-content:space-between;}
+    .login_sns{padding-bottom: 50px;}
+    .login_sns>li{width: 40px;}
+    .login_sns img{width: 100%;}
+
+
+</style>
+<!-- 버거메뉴 -->
+<style>
+    .burger_menu{overflow: scroll;-ms-overflow-style: none;
+        position: fixed;left:0;top:0;z-index: 101;display:flex;justify-content:flex-end;
+        width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none;}
+    .burger_menu::-webkit-scrollbar{display: none;}
+    .burger_menu nav{width: 330px; height: 100%; background: white;}
+    .nav_top{background: #160f2b; position: fixed; right: 0; top: 0; width: 330px;}
+    
+    .nav_header, .nav_join{display: flex; align-items: center; padding: 15px;}
+    .nav_header{border-bottom: 1px solid rgba(255,255,255,0.2); padding: 10px 10px 30px 20px;}
+    .nav_header>p{color: white;flex: 8; font-size: 16px;}
+    .nav_header>p>span{display:inline-block;text-decoration:underline;font-size:16px;cursor:pointer;}
+    .nav_header>a{flex: 1;}
+    .nav_header img{width: 100%;}
+
+    .nav_join>a{display: flex; justify-content: center; align-items: center; margin: 0 auto;
+        color:rgba(255,255,255,0.5); line-height: 20px;}
+    .nav_join>a>img{width: 15px; height: 15px; margin-right: 5px;}
+
+    .nav_content{height: 500px;padding-top: 124px;}
+    .nav_bottom{position:fixed;right:0;bottom:0;width:330px;}
+    .nav_bottom>img{width: 100%;}
+
+    .nav_quick_icon{display: flex;flex-flow: row wrap;padding: 10px 0;}
+    .nav_quick_icon>li{width: 33.3333%; text-align: center; padding: 20px 0;}
+    .nav_quick_icon>li img{width:50px;border:1px solid rgba(0,0,0,0.2);border-radius:50%;
+        padding: 10px;}
+    .nav_quick_icon span{margin-top: 10px;}
+
+    .nav_list{padding-bottom: 200px;background: white;}
+    .nav_list>li{border-top:1px solid rgba(0,0,0,0.1); padding:15px; line-height: 20px;}
+    .nav_list a{display: inline-block;color:rgba(0,0,0,0.8);font-size:16px;width:100%;}
+
+    #member_btn{display: flex; justify-content: space-between; align-items: center;}
+    #member_btn::after{content:'';display:block; width: 20px; height: 20px; 
+        background-image:url('images/ico-updown-off.png'); background-size:cover;}
+    .nav_list>li:nth-child(6){padding: 0;}
+    .nav_list>li:nth-child(7){border: none;}
+    .nav_list>li>.member_sub{padding:20px;background-color: #f5f5f5;}
+    .member_sub>li{padding-bottom: 10px;}
+    .member_sub>li:last-child{padding-bottom: 0;}
+    .member_sub a{font-size: 14px; color:rgba(0,0,0,0.5);}
+
+    .nav_list>li:last-child a{color:#14b9cb;display:flex;align-items:center;}
+    .nav_list>li:last-child a::before{content:'';display:block;width:20px;height:20px; 
+        background-image:url('images/ico-rnb-notice.png'); background-size:cover;}
+
+</style>
+
+<!-- 디폴트 스타일 -->
+<style>
+    body{overflow: scroll;-ms-overflow-style: none; overflow: hidden;}
+    body::-webkit-scrollbar{display: none;}
+
+    .container01,.container02{box-sizing:border-box;width: 100%; padding:0 16px;}
+    .container02{padding:0 0 0 16px;}
 
     .wrap{height: 2000px; background: #2a155a;}
 </style>
 
 </head>
+
+<!-- 
+================================================================
+================================================================
+================================================================
+================================================================ 
+-->
+
 <body>
+<!-- 상,하단 고정바 -->
     <div class="static_menu">
         <ul class="static_top">
             <li>
@@ -92,8 +217,6 @@
                 </a>
             </li>
         </ul>
-
-
 
         <ul class="static_bottom">
             <li>
@@ -134,7 +257,162 @@
         </ul>
     </div>
 
+<!-- 로그인폼 -->
+    <div class="login_form">
+        <div class="container01">
+            <form>
+                <div class="login_tit">
+                    <p>로그인</p>
+                    <img id="close_btn" src="images/ico-close.png" alt="close_btn">
+                </div>
+                <div class="login_content">
+                    <input class="id_pass" type="text" placeholder="아이디">
+                    <input class="id_pass" type="password" placeholder="비밀번호">
+                    <div class="id_save">
+                        <input id="save_id" type="checkbox">
+                        <label for="save_id"><span>아이디 저장</span></label>
+                    </div>
+                    <input type="button" value="로그인">
+                    <ul class="login_search">
+                        <li><a href="#">ID/PW 찾기</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">비회원 예매확인</a></li>
+                    </ul>
+                    <ul class="login_sns">
+                        <li>
+                            <a href="#">
+                                <img src="images/ico-facebook.png" alt="ico-facebook">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/ico-naver.png" alt="ico-naver">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/ico-kakao.png" alt="ico-kakao">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/ico-payco.png" alt="ico-payco">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
 
+<!-- 버거메뉴 -->
+    <div class="burger_menu">
+        <nav>
+            <div class="nav_top">
+                <div class="nav_header">
+                    <p><span id="login_txt">로그인</span> 후 이용하세요!</p>
+                    <a href="mo_web.html">
+                        <img src="images/ico-rnb-home.png" alt="ico-rnb-home">
+                    </a> 
+                    <a>
+                        <img id="burger_close_btn" src="images/ico-rnb-close.png" alt="ico-rnb-close">
+                    </a>
+                </div>
+                <div class="nav_join">
+                    <a href="#">
+                        <img src="images/ico-rnb-join.png" alt="ico-rnb-join">
+                        회원가입
+                    </a>
+                    <a href="#">
+                        <img src="images/ico-rnb-ticketing.png" alt="ico-rnb-ticketing">
+                        비회원 예매확인
+                    </a>
+                </div>
+            </div>
+            <div class="nav_content">
+                <ul class="nav_quick_icon">
+                    <li>
+                        <a href="#">
+                            <img src="images/ico-rnb-movie.png" alt="ico-rnb-movie">
+                            <span>영화별 예매</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/ico-rnb-theater.png" alt="ico-rnb-theater">
+                            <span>극장별 예매</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/ico-rnb-mymega.png" alt="ico-rnb-mymega">
+                            <span>나의 메가박스</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/ico-rnb-post.png" alt="ico-rnb-post">
+                            <span>영화</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/ico-rnb-store.png" alt="ico-rnb-store">
+                            <span>스토어</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="images/ico-rnb-event.png" alt="ico-rnb-event">
+                            <span>이벤트</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav_list">
+                    <li>
+                        <a href="#">극장안내</a>
+                    </li>
+                    <li>
+                        <a href="#">무비포스트</a>
+                    </li>
+                    <li>
+                        <a href="#">더 부티크 프라이빗 예매</a>
+                    </li>
+                    <li>
+                        <a href="#">제휴/할인 안내</a>
+                    </li>
+                    <li>
+                        <a href="#" id="member_btn">멤버십 안내</a>
+                    </li>
+                    <li>
+                        <ul class="member_sub">
+                            <li><a href="#">· 스페셜 맴버십</a></li>
+                            <li><a href="#">· 멤버십 안내</a></li>
+                            <li><a href="#">· VIP LOUNGE</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            고객센터
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="return false">
+                            [공지][카카오페이] 국민카드 전산시스템...
+                        </a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="nav_bottom">
+                <img src="images/rnb_ad_banner.jpg" alt="rnb_ad_banner">
+            </div>
+        </nav>
+    </div>
+
+<!-- wrapper -->
     <div class="wrap">
 
     </div>
