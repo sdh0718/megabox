@@ -104,7 +104,6 @@ $(function(){
     #close_btn{width: 30px; height: 30px;}
 
     .login_content{padding-top: 100px;}
-    .login_content input{border-radius: 0;}
     .id_pass{width:100%;margin-bottom:20px;padding:10px 0;border:none; outline: none;
         border-bottom:1px solid rgba(0,0,0,0.2);}
     .id_pass::placeholder{color: rgba(0,0,0,0.3);font-size: 13px;}
@@ -121,8 +120,9 @@ $(function(){
     .login_content input[type='button']{width: 100%;border:none; padding:15px 0; 
         color: white;font-size: 18px; background: #6437bf;cursor: pointer;}
 
-    .login_search,.login_sns{width:35%;margin:30px auto;display:flex;justify-content:space-between;}
-    .login_search{width:50%;}
+    .login_search,.login_sns{width:35%;margin:30px auto;display:flex;
+        justify-content:space-around;}
+    .login_search{width:100%;}
     .login_sns{padding-bottom: 50px;}
     .login_sns>li{width: 40px;}
     .login_sns img{width: 100%;}
