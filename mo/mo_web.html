@@ -69,6 +69,43 @@ $(function(){
         $('.member_sub').slideToggle(100);
         $('.member_sub').css('border-bottom','1px solid rgba(0,0,0,0.1)');
     });
+    // 메인메뉴 스와이퍼
+    var swiper = new Swiper('.swiper-container.main_menu', {
+        slidesPerView:'auto',
+        spaceBetween: 30,
+        freeMode:true,
+    });
+
+    // 메인메뉴 클릭이벤트
+    $('.main_menu .swiper-slide a').click(function(){
+        $('.main_menu .swiper-slide a').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    // 메인포스터 스와이퍼
+    var swiper = new Swiper('.swiper-container.main_poster', {
+        slidesPerView:'auto',
+        spaceBetween: 30,
+    });
+    
+    // //연령대 색상
+    // var aGe=$('.age').text();
+    // if(aGe=='15'){
+    //     $(this).css('background-color','orange');
+    // }
+
+    var video01=document.querySelector('video');
+    $('.play_btn').click(function(){
+        video01.play();
+        $(this).toggleClass('active')
+        $('.stop_btn').toggleClass('active');
+    });
+    $('.stop_btn').click(function(){
+        video01.pause();
+        $(this).toggleClass('active')
+        $('.play_btn').toggleClass('active');
+    });
+
 });    
 
 
@@ -77,8 +114,8 @@ $(function(){
 
 <!-- 상,하단 고정바 -->
 <style>
-    .static_top,.static_bottom{position:fixed;left:0;z-index:99;width:100%;box-sizing: border-box;padding: 16px 16px 4px 16px;
-        display:flex;justify-content:space-between;}
+    .static_top,.static_bottom{position:fixed;left:0;z-index:99;width:100%;box-sizing: border-box;
+        padding: 16px 16px 4px 16px;display:flex;justify-content:space-between;}
     .static_top{top:0; transition: 0.3s;}
     .static_top>li:nth-child(1) img{width: 30px;}
     .static_top>li:nth-child(2){margin-top: -12px; margin-right:-20px;}
@@ -92,14 +129,15 @@ $(function(){
 
 <!-- 로그인폼 스타일 -->
 <style>
-    .login_form{display: none; position: absolute;left: 0;top: 0;width: 100%;z-index:100;background: white;}
+    .login_form{display: none; position: absolute;left: 0;top: 0;width: 100%;z-index:100;
+    background: white;}
 
     .login_form,.login_form a{color: #666;}
 
     .login_tit::before{content: ''; display: block;}
-    .login_tit{display: flex; justify-content: space-between; padding: 10px 0;background: white;
-        position: fixed; left: 0; top: 0; width: 100%;}
-    .login_tit img{width: 30px;padding-right:15px;}
+    .login_tit{display: flex; justify-content: space-between; padding: 10px 0;
+        background: white;position: fixed; left: 0; top: 0; width: 100%;}
+    .login_tit img{margin-right:15px;}
     .login_tit p{font-size: 20px;padding-top: 4px;}
     #close_btn{width: 30px; height: 30px;}
 
@@ -110,8 +148,9 @@ $(function(){
 
     .id_save{display: flex; margin-bottom: 30px;}
     .id_save>label{display: flex; flex-flow:row nowrap; align-items: center;}
-    .id_save>label::before{content: ''; display: inline-block; width: 20px; height: 20px;margin-right: 5px;
-        background:url('images/bg-m-check-type3.png');background-size:cover;background-position:left;}
+    .id_save>label::before{content: ''; display: inline-block; width: 20px; height: 20px;
+        margin-right: 5px; background:url('images/bg-m-check-type3.png');
+        background-size:cover;background-position:left;}
     
     #save_id:checked~label::before{background-position: right;}
     #save_id{display: none;}
@@ -181,13 +220,68 @@ $(function(){
 
 <!-- 디폴트 스타일 -->
 <style>
-    body{overflow: scroll;-ms-overflow-style: none; overflow: hidden;}
-    body::-webkit-scrollbar{display: none;}
+      *{box-sizing:border-box;}
+      body{overflow:scroll;-ms-overflow-style:none;}
+      body::-webkit-scrollbar{display:none;}
 
     .container01,.container02{box-sizing:border-box;width: 100%; padding:0 16px;}
     .container02{padding:0 0 0 16px;}
 
-    .wrap{height: 2000px; background: #2a155a;}
+    h2{font-weight:100;font-size:28px;color:white;line-height:40px;}
+</style>
+
+<!-- wrap 스타일 -->
+<style>
+    .wrap{height: 2000px;}
+    .wrap{padding-top:63px;padding-bottom:76px;background:#0e0a20;}
+
+    .main_poster .swiper-slide::after{content: '바로예매'; display: block; border-radius: 5px; padding: 10px; 
+        background-color:#55aaaa;width:90%;height:25px;cursor:pointer;margin-top:20px;margin-bottom:30px;
+        font-size: 16px; color: white; text-align: center; line-height: 25px; font-weight: 200;}
+    
+    .section{padding: 20px 0 40px 0;}
+    hr{width: 100%; height: 1px; background-color:rgba(255,255,255,0.2);}
+
+    .main_menu{padding:40px 0 20px;}
+    .main_menu .swiper-slide{width:auto;}
+    .main_menu .swiper-slide a{color:rgba(255,255,255,0.3);}
+    .main_menu .swiper-slide a.active{color:rgba(255,255,255,1);text-decoration:underline;}
+
+    .main_poster .swiper-slide{width:210px;}
+    .main_poster .swiper-slide img{width:100%; height: 300px; border-radius: 5px;}
+
+    .main_poster_content>a{color: white;}
+    .main_poster_content>a>p{display: flex; justify-content: center; align-items: center; height: 36px;}
+    
+    .main_poster_content>a>p>.age{width: 20px; height: 20px; border-radius:50%; font-weight: 300;
+        font-size: 10px; text-align: center; line-height: 20px; margin-right: 8px; padding-right: 1px;}
+        .main_poster_content>a>p>span:last-child{font-size: 18px;font-weight: 200;}
+
+    .main_poster_content>ul{display: flex; justify-content: space-around; align-items: center; height: 50px;
+        color: white;text-align: center;}
+    .main_poster_content>ul>li>span{font-weight: lighter; font-size: 12px; color: rgba(255,255,255,0.5);}
+    .main_poster_content>ul>li>p{font-size: 20px;font-weight: 200; margin-top: 6px;}
+    
+    .poster_num{position: absolute; left: 10px; top: 10px; font-size: 24px; color: white; 
+        text-shadow: 2px 2px 3px black;}
+
+    .age_12{background-color: lightseagreen;}
+    .age_15{background-color: orange;}
+    .age_18{background-color: darkred;}
+    .age_all{background-color:green;}
+
+</style>
+
+<style>
+    .movie_clip{position: relative; margin-top: 30px;}
+    .play_btn,.stop_btn{position: absolute; left:50%; top: 50%; transform: translate(-50%,-50%); 
+        color: white; width: 50px; height: 50px; border: 1px solid white; border-radius: 50%;
+        background-color: rgba(255,255,255,0.5); font-size: 20px; padding-left: 3px; opacity: 0;
+        display: flex; justify-content: center; align-items: center; cursor: pointer;display: none;}
+    .stop_btn{font-size: 16px; padding-right: 3px; padding-bottom: 4px; font-weight: bolder;}
+    .movie_clip>div.active{display: flex;}
+    .movie_clip:hover .play_btn,.movie_clip:hover .stop_btn{opacity: 0.9;}
+
 </style>
 
 </head>
@@ -415,9 +509,438 @@ $(function(){
         </nav>
     </div>
 
-<!-- wrapper -->
-    <div class="wrap">
 
-    </div>
+<!-- 본문 -->
+  <div class="wrap">
+    <section class="section main">
+      <article class="container02">
+        <h2>
+          당신은 영화속 주인공처럼<br>
+          이 어려움도 이겨낼 거예요!
+        </h2>
+        <div class="swiper-container main_menu">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#" class="active">#박스오피스</a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">#예정작</a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">#단독</a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">#명작리플레이</a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">#필소</a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">#클소</a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">#폭스리플레이</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-container main_poster">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide00">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster00.jpg" alt="포스터00">
+                  <p><span class="age age_12">12</span><span>톰보이</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>17.6%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-3</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>205</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  1
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide01">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster01.jpg" alt="포스터01">
+                  <p><span class="age age_all">All</span><span>트롤:월드 투어</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>12.4%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D+2</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>503</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  2
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide02">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster02.jpg" alt="포스터02">
+                  <p><span class="age age_12">12</span><span>레이니 데이 인 뉴욕</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>9.5%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-3</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>95</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  3
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide03">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster03.jpg" alt="포스터03">
+                  <p><span class="age age_15">15</span><span>패왕별희 디 오리지널</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>9.5%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-3</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>854</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  4
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide04">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster04.jpg" alt="포스터04">
+                  <p><span class="age age_12">12</span><span>프리즌 이스케이프</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>5.3%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-2</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>428</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  5
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide05">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster05.jpg" alt="포스터05">
+                  <p><span class="age age_12">12</span><span>레미제라블:뮤지컬 콘..</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>5.3%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-2</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>429</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  6
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide06">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster06.jpg" alt="포스터06">
+                  <p><span class="age age_all">All</span><span>[오페라]마담 버터클라..</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>3.2%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D+5</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>28</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  7
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide07">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster07.jpg" alt="포스터07">
+                  <p><span class="age age_12">12</span><span>저 산 너머</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>3.2%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D+4</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>84</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  8
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide08">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster08.jpg" alt="포스터08">
+                  <p><span class="age age_12">12</span><span>[오페라]리골레토</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>3.1%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-3</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>259</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  9
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide09">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster09.jpg" alt="포스터09">
+                  <p><span class="age age_12">12</span><span>라라랜드</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>17.6%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-3</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>205</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  10
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide10">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster10.jpg" alt="포스터10">
+                  <p><span class="age age_15">15</span><span>날씨의 아이</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>1.8%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-1</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>5</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  11
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide11">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster11.jpg" alt="포스터11">
+                  <p><span class="age age_12">12</span><span>이별의 아침에 약속의..</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>1.8%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D+9</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>85</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  12
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide12">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster12.jpg" alt="포스터12">
+                  <p><span class="age age_18">18</span><span>[오페라]피델리오</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>1.8%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-3</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>21</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  13
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide13">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster13.jpg" alt="포스터13">
+                  <p><span class="age age_18">18</span><span>1917</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>17.6%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-3</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>205</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  14
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide swiper-slide14">
+              <div class="main_poster_content">
+                <a href="#">
+                  <img src="images/main_poster14.jpg" alt="포스터14">
+                  <p><span class="age age_12">12</span><span>나의 청춘은 너의 것</span></p>
+                </a>
+                <ul>
+                  <li>
+                    <span>예매율</span>
+                    <p>1.7%</p>
+                  </li>
+                  <li>
+                    <span>개봉일</span>
+                    <p>D-0</p>
+                  </li>
+                  <li>
+                    <span>보고싶어</span>
+                    <p>290</p>
+                  </li>
+                </ul>
+                <div class="poster_num">
+                  15
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <div class="container01">
+        <hr>
+      </div>
+    </section>
+    <section class="section hot_clip">
+        <article>
+            <h2 class="container01">핫클립</h2>
+            <div class="movie_clip">
+                <video src="media/movie01.mp4" width="100%"></video>
+                <div class="play_btn active">
+                    ▶
+                </div>
+                <div class="stop_btn">
+                    | |
+                </div>
+            </div>
+        </article>
+    </section>
+  </div>
 </body>
 </html>
