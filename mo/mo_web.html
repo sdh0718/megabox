@@ -127,6 +127,7 @@ $(function(){
         slidesPerView:'auto',
         spaceBetween: 30,
     });
+
     //스몰 무비 재생
     $('#play01').click(function(){
         location.href="media/movie01.mp4";
@@ -144,6 +145,11 @@ $(function(){
         location.href="media/movie05.mp4";
     });
 
+    //이벤트 스와이퍼 04
+    var swiper = new Swiper('.swiper-container04', {
+        slidesPerView:'auto',
+        spaceBetween: 20,
+    });
 
 });    
 
@@ -259,14 +265,15 @@ $(function(){
 
 <!-- 디폴트 스타일 -->
 <style>
-      *{box-sizing:border-box;}
-      body{overflow:scroll;-ms-overflow-style:none;}
-      body::-webkit-scrollbar{display:none;}
+    *{box-sizing:border-box;}
+    body{overflow:scroll;-ms-overflow-style:none;}
+    body::-webkit-scrollbar{display:none;}
 
     .container01,.container02{box-sizing:border-box;width: 100%; padding:0 16px;}
     .container02{padding:0 0 0 16px;}
 
     h2{font-weight:100;font-size:28px;color:white;line-height:40px;}
+    hr{width: 100%; height: 1px; background-color:rgba(255,255,255,0.2); margin: 30px 0 0;}
 </style>
 
 <!-- wrap 스타일 -->
@@ -277,8 +284,7 @@ $(function(){
         background-color:#55aaaa;width:90%;height:25px;cursor:pointer;margin-top:20px;margin-bottom:30px;
         font-size: 16px; color: white; text-align: center; line-height: 25px; font-weight: 200;}
     
-    .section{padding: 20px 0 40px 0;}
-    hr{width: 100%; height: 1px; background-color:rgba(255,255,255,0.2);}
+    .section{padding: 20px 0;}
 
     .main_menu{padding:40px 0 20px;}
     .main_menu .swiper-slide{width:auto;}
@@ -311,7 +317,8 @@ $(function(){
 </style>
 
 <style>
-    .movie_clip{position: relative; margin-top: 30px; color: white; display: none;}
+    .hot_clip h2{margin-bottom: 30px;}
+    .movie_clip{position: relative; color: white; display: none;}
     .play_btn,.stop_btn{position: absolute; left:50%; top: 50%; transform: translate(-50%,-50%); 
         color: white; width: 50px; height: 50px; border: 1px solid white; border-radius: 50%;
         background-color: rgba(255,255,255,0.5); font-size: 20px; padding-left: 3px; opacity: 0.8;
@@ -332,6 +339,21 @@ $(function(){
     .small_movie_clip>span:last-of-type{font-size: 14px;font-weight: lighter; color: rgba(255,255,255,0.5);}
     .small_movie_clip>video{border-radius: 5px;}
 
+
+</style>
+
+<style>
+    .mega_news .img{width: 100%; margin: 10px auto; border-radius: 5px; overflow: hidden;}
+    .mega_news .img img{width: 100%;}
+    .mega_news h2{margin-bottom: 30px;}
+</style>
+
+<style>
+    .swiper-container04 .swiper-slide{width: 360px;}
+    .swiper-container04 .swiper-slide .img{border-radius: 5px; overflow: hidden; cursor: pointer;}
+    .swiper-container04 .swiper-slide .img img{width: 100%;}
+    .event_tit{color:white;font-size: 16px; padding: 10px 0;}
+    .event_date{color: rgba(255,255,255,0.5);}
 
 </style>
 
@@ -977,123 +999,262 @@ $(function(){
         <div class="container01">
           <hr>
         </div>
-      </section>
-      <section class="section hot_clip">
-          <article>
-                <h2 class="container01">핫클립</h2>
-                <div class="movie_clip active">
-                    <video src="media/movie01.mp4" width="100%"></video>
-                    <div class="play_btn active">
-                        ▶
+        </section>
+        <section class="section hot_clip">
+            <article>
+                    <h2 class="container01">핫클립</h2>
+                    <div class="movie_clip active">
+                        <video src="media/movie01.mp4" width="100%"></video>
+                        <div class="play_btn active">
+                            ▶
+                        </div>
+                        <div class="stop_btn">
+                            | |
+                        </div>
+                        <span class="container01">비트코인</span>
+                        <span class="container01">하지 마시는걸 추천드립니다.</span>
                     </div>
-                    <div class="stop_btn">
-                        | |
+                    <div class="movie_clip">
+                        <video src="media/movie02.mp4" width="100%"></video>
+                        <div class="play_btn active">
+                            ▶
+                        </div>
+                        <div class="stop_btn">
+                            | |
+                        </div>
+                        <span class="container01">갈대밭</span>
+                        <span class="container01">자연을 느껴보세요.</span>
                     </div>
-                    <span class="container01">비트코인</span>
-                    <span class="container01">하지 마시는걸 추천드립니다.</span>
+                    <div class="movie_clip">
+                        <video src="media/movie03.mp4" width="100%"></video>
+                        <div class="play_btn active">
+                            ▶
+                        </div>
+                        <div class="stop_btn">
+                            | |
+                        </div>
+                        <span class="container01">절대 시계</span>
+                        <span class="container01">시간이 정밀하게 맞습니다.</span>
+                    </div>
+                    <div class="movie_clip">
+                        <video src="media/movie04.mp4" width="100%"></video>
+                        <div class="play_btn active">
+                            ▶
+                        </div>
+                        <div class="stop_btn">
+                            | |
+                        </div>
+                        <span class="container01">사랑</span>
+                        <span class="container01">I LOVE YOU.</span>
+                    </div>
+                    <div class="movie_clip">
+                        <video src="media/movie05.mp4" width="100%"></video>
+                        <div class="play_btn active">
+                            ▶
+                        </div>
+                        <div class="stop_btn">
+                            | |
+                        </div>
+                        <span class="container01">불꽃</span>
+                        <span class="container01">타오릅니다.</span>
+                    </div>
+            </article>
+            <article class="small_movie_clip">
+                    <div class="swiper-container03 container02">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="small_movie_clip">
+                                    <video src="media/movie01.mp4" width="100%"></video>
+                                    <div class="play_btn" id="play01">
+                                        ▶
+                                    </div>
+                                    <span class="container01">비트코인</span>
+                                    <span class="container01">하지 마시는걸 추천드립니다.</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="small_movie_clip">
+                                    <video src="media/movie02.mp4" width="100%"></video>
+                                    <div class="play_btn" id="play02">
+                                        ▶
+                                    </div>
+                                    <span class="container01">갈대밭</span>
+                                    <span class="container01">자연을 느껴보세요.</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="small_movie_clip">
+                                    <video src="media/movie03.mp4" width="100%"></video>
+                                    <div class="play_btn" id="play03">
+                                        ▶
+                                    </div>
+                                    <span class="container01">절대 시계</span>
+                                    <span class="container01">시간이 정밀하게 맞습니다.</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="small_movie_clip">
+                                    <video src="media/movie04.mp4" width="100%"></video>
+                                    <div class="play_btn" id="play04">
+                                        ▶
+                                    </div>
+                                    <span class="container01">사랑</span>
+                                    <span class="container01">I LOVE YOU.</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="small_movie_clip">
+                                    <video src="media/movie05.mp4" width="100%"></video>
+                                    <div class="play_btn" id="play05">
+                                        ▶
+                                    </div>
+                                    <span class="container01">불꽃</span>
+                                    <span class="container01">타오릅니다.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </article>
+            <div class="container01">
+                <hr>
+            </div>
+        </section>
+        <section class="section mega_news">
+            <article class="container01">
+                <h2>메가박스 소식</h2>
+                <div class="img">
+                    <a href="#">
+                        <img src="images/mega_news01.jpg" alt="mega_news01">
+                    </a>
                 </div>
-                <div class="movie_clip">
-                    <video src="media/movie02.mp4" width="100%"></video>
-                    <div class="play_btn active">
-                        ▶
-                    </div>
-                    <div class="stop_btn">
-                        | |
-                    </div>
-                    <span class="container01">갈대밭</span>
-                    <span class="container01">자연을 느껴보세요.</span>
+                <div class="img">
+                    <a href="#">
+                        <img src="images/mega_news02.jpg" alt="mega_news02">
+                    </a>
                 </div>
-                <div class="movie_clip">
-                    <video src="media/movie03.mp4" width="100%"></video>
-                    <div class="play_btn active">
-                        ▶
-                    </div>
-                    <div class="stop_btn">
-                        | |
-                    </div>
-                    <span class="container01">절대 시계</span>
-                    <span class="container01">시간이 정밀하게 맞습니다.</span>
+                <div class="img">
+                    <a href="#">
+                        <img src="images/mega_news03.jpg" alt="mega_news03">
+                    </a>
                 </div>
-                <div class="movie_clip">
-                    <video src="media/movie04.mp4" width="100%"></video>
-                    <div class="play_btn active">
-                        ▶
-                    </div>
-                    <div class="stop_btn">
-                        | |
-                    </div>
-                    <span class="container01">사랑</span>
-                    <span class="container01">I LOVE YOU.</span>
+                <div class="img">
+                    <a href="#">
+                        <img src="images/mega_news04.jpg" alt="mega_news04">
+                    </a>
                 </div>
-                <div class="movie_clip">
-                    <video src="media/movie05.mp4" width="100%"></video>
-                    <div class="play_btn active">
-                        ▶
-                    </div>
-                    <div class="stop_btn">
-                        | |
-                    </div>
-                    <span class="container01">불꽃</span>
-                    <span class="container01">타오릅니다.</span>
-                </div>
-          </article>
-          <article class="small_movie_clip">
-                <div class="swiper-container03 container02">
+            </article>
+            <div class="container01">
+                <hr>
+            </div>
+        </section>
+        <section class="section movie_event">
+            <article>
+                <div class="swiper-container04">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="small_movie_clip">
-                                <video src="media/movie01.mp4" width="100%"></video>
-                                <div class="play_btn" id="play01">
-                                    ▶
-                                </div>
-                                <span class="container01">비트코인</span>
-                                <span class="container01">하지 마시는걸 추천드립니다.</span>
+                        <div class="swiper-slide container01">
+                            <div class="img">
+                                <img src="images/event_img01.jpg" alt="event_img01">
                             </div>
+                            <p class="event_tit">호소다 마모루 기획전</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
                         </div>
                         <div class="swiper-slide">
-                            <div class="small_movie_clip">
-                                <video src="media/movie02.mp4" width="100%"></video>
-                                <div class="play_btn" id="play02">
-                                    ▶
-                                </div>
-                                <span class="container01">갈대밭</span>
-                                <span class="container01">자연을 느껴보세요.</span>
+                            <div class="img">
+                                <img src="images/event_img02.jpg" alt="event_img02">
                             </div>
+                            <p class="event_tit">20세기 폭스 리플레이</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
                         </div>
                         <div class="swiper-slide">
-                            <div class="small_movie_clip">
-                                <video src="media/movie03.mp4" width="100%"></video>
-                                <div class="play_btn" id="play03">
-                                    ▶
-                                </div>
-                                <span class="container01">절대 시계</span>
-                                <span class="container01">시간이 정밀하게 맞습니다.</span>
+                            <div class="img">
+                                <img src="images/event_img03.jpg" alt="event_img03">
                             </div>
+                            <p class="event_tit">"이별의 아침에 약속의 꽃을 장식하자" 스페...</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
                         </div>
                         <div class="swiper-slide">
-                            <div class="small_movie_clip">
-                                <video src="media/movie04.mp4" width="100%"></video>
-                                <div class="play_btn" id="play04">
-                                    ▶
-                                </div>
-                                <span class="container01">사랑</span>
-                                <span class="container01">I LOVE YOU.</span>
+                            <div class="img">
+                                <img src="images/event_img04.jpg" alt="event_img04">
                             </div>
+                            <p class="event_tit">"트롤: 월드 투어" 2주차 현장 경품 이벤트</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
                         </div>
                         <div class="swiper-slide">
-                            <div class="small_movie_clip">
-                                <video src="media/movie05.mp4" width="100%"></video>
-                                <div class="play_btn" id="play05">
-                                    ▶
-                                </div>
-                                <span class="container01">불꽃</span>
-                                <span class="container01">타오릅니다.</span>
+                            <div class="img">
+                                <img src="images/event_img05.jpg" alt="event_img05">
                             </div>
+                            <p class="event_tit">"저 산 너머" 개봉기념 현장 할인 이벤트</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
                         </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img06.jpg" alt="event_img06">
+                            </div>
+                            <p class="event_tit">"톰보이" 필름 소사이어티 굿즈 패키지 상영회</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img07.jpg" alt="event_img07">
+                            </div>
+                            <p class="event_tit">"레미제라블:뮤지컬 콘서트" 스페셜 엽서...</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img08.jpg" alt="event_img08">
+                            </div>
+                            <p class="event_tit">제목</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img09.jpg" alt="event_img09">
+                            </div>
+                            <p class="event_tit">제목</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img10.jpg" alt="event_img10">
+                            </div>
+                            <p class="event_tit">제목</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img11.jpg" alt="event_img11">
+                            </div>
+                            <p class="event_tit">제목</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img12.jpg" alt="event_img12">
+                            </div>
+                            <p class="event_tit">제목</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img13.jpg" alt="event_img13">
+                            </div>
+                            <p class="event_tit">제목</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img">
+                                <img src="images/event_img14.jpg" alt="event_img14">
+                            </div>
+                            <p class="event_tit">제목</p>
+                            <p class="event_date">2020.01.10 - 2020.03.20</p>
+                        </div>
+
                     </div>
                 </div>
-          </article>
-      </section>
+
+            </article>
+        </section>
     </div>
 </body>
 </html>
