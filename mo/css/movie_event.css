@@ -1,0 +1,10 @@
+@charset 'utf-8'; 
+
+.movie_event h2{padding-bottom: 30px;}
+.swiper-container04 .swiper-slide{width: 360px;}
+.movie_event .swiper-wrapper>div:first-child{margin-left: 16px;}
+.swiper-container04 .swiper-slide .img{border-radius: 5px; overflow: hidden; cursor: pointer;}
+.swiper-container04 .swiper-slide .img img{width: 100%;}
+.swiper-container04 .swiper-slide .img img:first-child{width: 360px; ;}
+.event_tit{color:white;font-size: 16px; padding: 10px 0;}
+.event_date{color: rgba(255,255,255,0.5);}

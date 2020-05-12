@@ -1,0 +1,47 @@
+@charset 'utf-8';
+
+.burger_menu{overflow: scroll;-ms-overflow-style: none;
+    position: fixed;left:0;top:0;z-index: 101;display:flex;justify-content:flex-end;
+    width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none;}
+.burger_menu::-webkit-scrollbar{display: none;}
+.burger_menu nav{width: 330px; height: 100%; background: white;}
+.nav_top{background: #160f2b; position: fixed; right: 0; top: 0; width: 330px;}
+
+.nav_header, .nav_join{display: flex; align-items: center; padding: 15px;}
+.nav_header{border-bottom: 1px solid rgba(255,255,255,0.2); padding: 10px 10px 30px 20px;}
+.nav_header>p{color: white;flex: 8; font-size: 16px;}
+.nav_header>p>span{display:inline-block;text-decoration:underline;font-size:16px;cursor:pointer;}
+.nav_header>a{flex: 1;}
+.nav_header img{width: 100%;}
+
+.nav_join>a{display: flex; justify-content: center; align-items: center; margin: 0 auto;
+    color:rgba(255,255,255,0.5); line-height: 20px;}
+.nav_join>a>img{width: 15px; height: 15px; margin-right: 5px;}
+
+.nav_content{height: 500px;padding-top: 124px;}
+.nav_bottom{position:fixed;right:0;bottom:0;width:330px;}
+.nav_bottom>img{width: 100%;}
+
+.nav_quick_icon{display: flex;flex-flow: row wrap;padding: 10px 0;}
+.nav_quick_icon>li{width: 33.3333%; text-align: center; padding: 20px 0;}
+.nav_quick_icon>li img{width:50px;border:1px solid rgba(0,0,0,0.2);border-radius:50%;
+    padding: 10px;}
+.nav_quick_icon span{margin-top: 10px;}
+
+.nav_list{padding-bottom: 200px;background: white;}
+.nav_list>li{border-top:1px solid rgba(0,0,0,0.1); padding:15px; line-height: 20px;}
+.nav_list a{display: inline-block;color:rgba(0,0,0,0.8);font-size:16px;width:100%;}
+
+#member_btn{display: flex; justify-content: space-between; align-items: center;}
+#member_btn::after{content:'';display:block; width: 20px; height: 20px; 
+    background-image:url('images/ico-updown-off.png'); background-size:cover;}
+.nav_list>li:nth-child(6){padding: 0;}
+.nav_list>li:nth-child(7){border: none;}
+.nav_list>li>.member_sub{padding:20px;background-color: #f5f5f5;}
+.member_sub>li{padding-bottom: 10px;}
+.member_sub>li:last-child{padding-bottom: 0;}
+.member_sub a{font-size: 14px; color:rgba(0,0,0,0.5);}
+
+.nav_list>li:last-child a{color:#14b9cb;display:flex;align-items:center;}
+.nav_list>li:last-child a::before{content:'';display:block;width:20px;height:20px; 
+    background-image:url('images/ico-rnb-notice.png'); background-size:cover;}

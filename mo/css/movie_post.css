@@ -1,0 +1,25 @@
+@charset 'utf-8'; 
+
+.movie_post h2{margin-bottom: 20px;}
+.movie_post h2,.movie_post .movie_post_txt{display: flex; justify-content: space-between;}
+.movie_post h2::after{content:'';display: block;width:20px;height:20px; cursor: pointer;
+    padding-right:2px; margin-top: 12px; border-radius: 50%; background-color: #333;
+    background-image:url('images/ico-main-spritex2.png');background-size: 334px 192px; 
+    background-position:-2px -53px;}
+.movie_post>.container01>p{color:rgba(255,255,255,0.7);font-size:16px;font-weight: lighter;}
+.movie_post>.container01>p:last-child{margin-bottom: 30px;}
+.movie_post .movie_post_txt::after{content: '포스트 쓰기'; display: block; 
+    padding:6px 10px; cursor: pointer;border:1px solid rgba(255,255,255,0.7);
+    border-radius: 12px; color: rgba(255,255,255,0.5); font-size: 12px;}
+
+.movie_post .swiper-slide{width: 160px;}
+.movie_post_content{height: 250px; background-color:rgba(255,255,255,0.1);border-radius: 5px;
+    overflow: hidden;}
+
+.post_id,.post_tit,.post_txt,.post_icon{padding:0 10px; padding-top: 10px;}
+.post_id,.post_icon{color:rgba(255,255,255,0.5); font-weight: 100;}
+.post_tit{font-size: 16px; color: white;}
+.post_txt{color: white; font-weight: lighter; font-size: 14px;line-height: 18px;}
+.movie_post_content .post_img{width:100%; height:100px;overflow: hidden;position: relative;}
+.movie_post_content .post_img img{width: 150%; position: absolute; left: 50%; transform: translateX(-50%);}
+.post_icon{position: absolute; bottom:15px;}
