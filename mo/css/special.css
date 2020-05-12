@@ -3,7 +3,7 @@
 .special_list{display: flex; justify-content: space-between; width: 330px;}
 .special h2{padding-bottom: 30px;}
 .special_list .special_img{width: 62px; height: 62px;border-radius: 50%;
-    background-image:url('images/ico-main-spritex2.png'); background-size:336px 192px;}
+    background-image:url('../images/ico-main-spritex2.png'); background-size:336px 192px;}
     
 .special_img01{background-position: -248px -85px;}
 .special_img02{background-position: -335px -85px;}

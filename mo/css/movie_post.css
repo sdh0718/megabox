@@ -4,7 +4,7 @@
 .movie_post h2,.movie_post .movie_post_txt{display: flex; justify-content: space-between;}
 .movie_post h2::after{content:'';display: block;width:20px;height:20px; cursor: pointer;
     padding-right:2px; margin-top: 12px; border-radius: 50%; background-color: #333;
-    background-image:url('images/ico-main-spritex2.png');background-size: 334px 192px; 
+    background-image:url('../images/ico-main-spritex2.png');background-size: 334px 192px; 
     background-position:-2px -53px;}
 .movie_post>.container01>p{color:rgba(255,255,255,0.7);font-size:16px;font-weight: lighter;}
 .movie_post>.container01>p:last-child{margin-bottom: 30px;}
