@@ -39,8 +39,8 @@
 .login_form .login_menu li:nth-child(2n){width: 1px; background-color: gray;}
 
 .login_form .sns_login{padding: 12px 20px; display: grid; grid-template-columns: auto auto auto auto;grid-column-gap:20px;}
-
 .login_form .sns_login li{text-align:center;}
+.login_form .sns_login img{width: 50%;}
 
 /* wrap */
 .wrap{position: relative; width: 100%; max-width: 2000px; margin: 0 auto;}
